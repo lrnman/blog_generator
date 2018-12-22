@@ -117,7 +117,7 @@
         // Disable animations/transitions until the page has loaded.
         $window.on('load', function () {
             setTimeout(function () {
-                $body.removeClass('is-loading');
+                $body.removeClass('is-loading loading');
             }, 1);
         });
 
