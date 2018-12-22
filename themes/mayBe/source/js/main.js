@@ -42,7 +42,8 @@
         $this.each(function () {
 
             var $t = $(this),
-                $bg = $('<div class="bg"></div>').appendTo($t),
+                // $bg = $('<div class="bg"></div>').appendTo($t),
+                $bg = $('.bg'),
                 on, off;
 
             on = function () {

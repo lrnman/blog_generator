@@ -88,7 +88,11 @@
 				&:first-child {
 					border-top: 0;
 				}
-			}
+
+				&.active a {
+                    color: _palette(accent);
+                }
+            }
 		}
 
 		.icons {

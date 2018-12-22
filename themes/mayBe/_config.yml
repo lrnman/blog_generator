@@ -1,3 +1,7 @@
+#bg
+bg: bg_2.jpg
+bg_position: center center
+
 # Header
 menu:
   home: /
@@ -20,13 +24,13 @@ icons:
 unnamed: (unnamed)
 
 #banner
-banner_thumbs: ../images/banner/1.JPG
-banner_video: ../videos/banner/1.mp4
+banner_thumbs: /banner/4.jpg
+banner_video:
 banner_h1: '" I am what  <br /> I am.'
 
 #layout text
 intro_h1: Who is<br />EVERYDAY HERO
-intro_p:  关于<a href="/me/">我</a>
+intro_p:  摆 脱 被 期 望
 
 #header text
 logo_text: EVERYDAYHERO
@@ -68,16 +72,19 @@ contact: Contact
 msg_server_url: https://api.55to.top/email
 
 #intro
+intro_bg: intro.jpg
 intro_text:
   h: Hey.
-  p: 最近过得怎么样？
+  p: 最 近 过 得 怎 么 样 ？<br />I DO NOT CARE.
 
 #do
+one_bg: one.jpg
 do_text:
   h: What I Do
   p: Nothing.
 
 #am
+two_bg: two_2.jpg
 am_text:
   h: Who I Am
   p: Yeah，我是廖建。我就是我。
