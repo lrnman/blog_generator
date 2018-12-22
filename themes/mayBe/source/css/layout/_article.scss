@@ -1,0 +1,106 @@
+//author：Jerry
+
+/*_article*/
+
+.read-post {
+
+  #tag_cloud {
+    margin-top: 1rem;
+
+    @include tag($fontSize: 0.7rem);
+
+    .title {
+      margin-right: 12px;
+      font-size: 1.2rem;
+    }
+  }
+
+  @include code;
+
+  @mixin fix {
+    p {
+      margin: 0 0 1rem 0;
+    }
+
+    figure {
+      margin: 0 0 2rem 0;
+      overflow: auto;
+    }
+
+    figure.highlight {
+      table, pre {
+        margin-bottom: 0;
+      }
+    }
+
+    blockquote {
+      padding: 0 0 0 2rem;
+      font-family: 'Microsoft YaHei';
+
+      p {
+        margin-bottom: 0;
+      }
+
+      a {
+        word-break: break-all;
+      }
+    }
+  }
+
+  @include  fix;
+
+  //fix display of code
+  figure.highlight {
+
+    figcaption {
+      padding: 0 20px;
+      font-size: 0.7rem;
+      border-bottom: 1px solid #eee;
+
+      a {
+        float: right;
+        line-height: 1;
+        margin-top: 1.2%;
+      }
+    }
+
+    table {
+      display: block;
+      position: relative;
+      overflow-y: hidden;
+
+      tr {
+        border: 0;
+        td {
+          div {
+            line-height: 1.3rem;
+            height: 1.4rem;
+          }
+        }
+      }
+    }
+  } //end fix display of code
+
+  //fix display of blockquote
+  blockquote {
+    footer {
+      cite::before {
+        content: ' - ';
+      }
+    }
+  }
+
+  blockquote.left,
+  blockquote.right {
+    width: 45%;
+    float: left;
+    margin: 1.5rem 35px 1.5rem 0;
+    padding: 0 1rem 0 1rem;
+  }
+
+  blockquote.right {
+    float:right;
+    margin: 1.5rem 0 1.5rem 35px;
+  }
+}
+

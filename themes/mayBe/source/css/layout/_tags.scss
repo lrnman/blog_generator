@@ -1,0 +1,67 @@
+//author：Jerry
+
+/*_tags*/
+
+.tags-container {
+  padding-bottom: 7rem !important;
+
+  .tags {
+    @include vendor('user-select', 'none');
+    @include tag;
+  }
+
+  .one-tag-list {
+    border-bottom: 1px solid #eef2f8;
+    word-break: break-all;
+
+    .listing-seperator {
+      @include vendor('user-select', 'none');
+      cursor: default;
+      margin: 1.5em .5em 0em;
+      font-weight: bolder;
+      font-style: italic;
+      color: #938f8f;
+
+      .tag-text {
+        font-size: 1.4rem;
+        word-break: break-all;
+      }
+
+      .signal {
+        display: none;
+        color: #43f1f7;
+        font-weight: 900;
+        font-size: 1.4rem;
+        font-style: initial;
+        padding-left: 10px;
+      }
+    }
+
+    .fa-tag:target .signal {
+      display: inline-block;
+    }
+
+    .post-preview {
+      padding-left: 40px;
+
+      .fa {
+        margin-right: 10px;
+      }
+
+      .date {
+        color: #9eabb3;
+      }
+    }
+
+  }
+
+  .end {
+    text-align: center;
+    padding-top: 40px;
+    @include vendor('user-select', 'none');
+    cursor: default;
+  }
+}
+
+
+

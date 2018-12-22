@@ -1,0 +1,141 @@
+# Header
+menu:
+  home: /
+  generic page:
+  tags: tags
+  me: me
+  password book: pwdbook
+
+icons:
+#  |前的值会作为font awesome icon的名字， 如果| 后面有值，则是font awesome icon的名字。
+#  不赋值代表不启用那个icon
+  github: https://github.com/lrnman
+  weibo:
+  coding|code : https://coding.net/u/jerryy
+  twitter:
+  facebook:
+  instagram:
+
+# 未命名文章名字
+unnamed: (unnamed)
+
+#banner
+banner_thumbs: ../images/banner/1.JPG
+banner_video: ../videos/banner/1.mp4
+banner_h1: '" I am what  <br /> I am.'
+
+#layout text
+intro_h1: Who is<br />EVERYDAY HERO
+intro_p:  关于<a href="/me/">我</a>
+
+#header text
+logo_text: EVERYDAYHERO
+
+# Miscellaneous
+favicon: /favicon.jpg
+
+# stylesheets loaded in the <head>
+stylesheets:
+- /css/main
+
+stylesheets_of_me:
+- /css/me/main
+
+
+# scripts loaded in the end of the body
+scripts:
+- /js/jquery.min
+#- /js/jquery.lazyload.min
+- /js/jquery.poptrox.min
+- /js/jquery.scrollex.min
+- /js/jquery.scrolly.min
+- /js/skel.min
+- /js/util
+- /js/main
+
+# 文章展示时间格式
+date_format: MM DD, YYYY
+
+#me page right nav
+intro: Hey.
+what_i_do: What I Do
+who_i_am: Who I Am
+my_work: My Work
+contact: Contact
+
+#me main
+
+msg_server_url: https://api.55to.top/email
+
+#intro
+intro_text:
+  h: Hey.
+  p: 最近过得怎么样？
+
+#do
+do_text:
+  h: What I Do
+  p: Nothing.
+
+#am
+am_text:
+  h: Who I Am
+  p: Yeah，我是廖建。我就是我。
+
+#am
+work_text:
+  h: My Work
+  p: 嗯哼，怎么样？
+
+#urls of work images
+# 1、大图
+# 2、缩略图
+# 3、描述
+# 4、data-poptrox
+work_imgs:
+  p1:
+  - /images/me/fulls/1.png
+  - /images/me/thumbs/1.png
+  - SKATING towards the sun!!!!!
+  -
+  p2:
+  - /images/me/fulls/2.JPG
+  - /images/me/thumbs/2.JPG
+  - 《雪花》
+  -
+
+#   p1:
+#    - /images/me/fulls/1.png
+#    - /images/me/thumbs/1.png
+#    - SKATING towards the sun!!!!!
+#    -
+#    p2:
+#    - /images/me/fulls/2.JPG
+#    - /images/me/thumbs/2.JPG
+#    - 《雪花》
+#    -
+#    p3:
+#    - https://c.55to.top
+#    - /images/me/thumbs/3.jpg
+#    - mayBe主题，就是我现在博客这个。
+#    - iframe
+#    p4:
+#    - https://eowg.55to.top
+#    - /images/me/thumbs/4.jpg
+#    - 官方网站，https://eowg.55to.top
+#    - iframe
+#    p5:
+#    - https://jkg.55to.top
+#    - /images/me/thumbs/5.png
+#    - 吾吾金矿，https://jkg.55to.top
+#    - iframe
+#    p6:
+#    - https://todog.55to.top
+#    - /images/me/thumbs/6.png
+#    - TODO by backbone, https://todog.55to.top
+#    - iframe
+
+#contact
+contact_text:
+  h: Say Hello.
+  p: 嘿，如果你想向我推销东西，有四个字给你，谢绝推销。不管怎样，如果你美，请在下面给我留言（ECS过期了，留言功能失效）

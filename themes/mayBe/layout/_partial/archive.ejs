@@ -1,0 +1,64 @@
+<%
+   var ps = page.posts.toArray();
+   var i = 0;
+%>
+<!-- Featured Post -->
+<article class="post featured">
+    <header class="major">
+        <span class="date"><%- ps[i].date.format(theme.date_format) %></span>
+        <h2>
+            <% if (!ps[i].link) { %>
+                <a href="<%- url_for(ps[i].path) %>"><%- ps[i].title || theme.unnamed %></a>
+            <% } else { %>
+                <%- link_to(ps[i].link, ps[i].title || ps[i].link || theme.unnamed, {external: true}) %>
+            <% } %>
+        </h2>
+        <div class="outer"><div class="inner"><%- ps[i].digest || ps[i].excerpt || '' %></div></div>
+    </header>
+    <a href="<%- url_for(ps[i].path) %>" class="image main">
+        <% if (ps[i].cover) { %>
+        <div class="img" style="background: url(<%- ps[i].cover %>); background-size: cover; background-position: center"></div>
+        <% } %>
+    </a>
+    <ul class="actions">
+        <li><a href="<%- url_for(ps[i].path) %>" class="button big">Full <%- ps[i].classify || 'article' %></a></li>
+    </ul>
+</article>
+
+<!-- Posts -->
+<section class="posts">
+    <%for (i++; i < ps.length; i++) { %>
+    <article>
+        <header>
+            <span class="date"><%- ps[i].date.format(theme.date_format) %></span>
+            <h2>
+                <% if (!ps[i].link) { %>
+                <a href="<%- url_for(ps[i].path) %>"><%- ps[i].title || theme.unnamed %></a>
+                <% } else { %>
+                <%- link_to(ps[i].link, ps[i].title || ps[i].link || theme.unnamed, {external: true}) %>
+                <% } %>
+            </h2>
+        </header>
+        <a href="<%- url_for(ps[i].path) %>" class="image fit">
+            <% if (ps[i].cover) { %>
+            <div class="img" style="background: url(<%- ps[i].cover %>); background-size: cover; background-position: center"></div>
+            <% } %>
+        </a>
+        <p><%- ps[i].digest || ps[i].excerpt || '' %></p>
+        <ul class="actions">
+            <li><a href="<%- url_for(ps[i].path) %>" class="button">Full <%- ps[i].classify || 'article' %></a></li>
+        </ul>
+    </article>
+    <% } %>
+    <% if (ps.length % 2 == 0) { %>
+    <article class="end">
+        <p>(END)</p>
+    </article>
+    <% } %>
+</section>
+
+
+
+
+
+

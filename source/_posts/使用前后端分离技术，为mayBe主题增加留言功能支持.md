@@ -1,0 +1,116 @@
+title: 使用前后端分离技术，为mayBe主题增加留言功能
+date: 2017-07-06 10:13:00
+classify:
+cover: /assets/增加留言功能/2.PNG
+digest: 既然服务器能接收到请求和返回数据，我们可以使用script标签把包含数据的请求发往服务器...
+
+tags:
+- 前端
+- jsonp
+toc: true
+row:
+photos:
+---
+
+&emsp;&emsp;前后端技术我所知一共3种方式。这次，我们使用其中的JSONP技术来实现我们的目的。
+
+## 问题
+&emsp;&emsp;不知道你有没有这样的经历。在本地开发时，你希望向你的同事开发的后台请求某些数据，用于测试前端页面功能，但是ajax请求发不出去，表单提交不了。或者你希望你部署在github上的pages项目能够有后端的支持，但奈何还是遇到上种情况。
+
+## 目的
+&emsp;&emsp;不使用第三方服务，为自己的博客增加留言功能。
+
+## 原因和原理
+先来看下什么是同源策略。
+{% blockquote 百度百科 http://baike.baidu.com/link?url=x7QdnxnIkLY8yJjnbiUOur7vehBsWMGWbhPMMhPrWU8W9hTP6SvgaQywqrP8biGq7SfIdHx4Bk_Yj4cDsGhBmP76B2I2NNDDqaKKgVosHue5ZzgeInsHvjUMmMYx5pPr 同源策略 %}
+同源策略，它是由Netscape提出的一个著名的安全策略。
+现在所有支持JavaScript 的浏览器都会使用这个策略。
+所谓同源是指，域名，协议，端口相同。
+如果非同源，那么在请求数据时，浏览器会在控制台中报一个异常，提示拒绝访问。
+{% endblockquote  %}
+
+&emsp;&emsp;分析上面写的问题，可以看出，它们的共同点是前端页面和后端程序不在同一服务器上，违反了同源策略请求数据，被禁止。所以，我们需要做的就是绕开同源策略。
+&emsp;&emsp;到这里，你可能会有疑问说：我从CDN上获取js包为什么能获取到啊？为什么我能像这样```<iframe src="https://baidu.com"></iframe>```获取百度的资源啊？
+&emsp;&emsp;具体原因我不知道，但HTML的含src属性的标签元素是例外，这就是我们要利用的地方。既然**服务器能接收到请求和返回数据**，我们可以使用script标签把包含数据的请求**发往服务器**，并让我们的**服务器返回JS代码数据**，同时这就是JSONP。
+
+## 解决方案
+
+1.编写前端代码
+&emsp;&emsp;· 编写标签发送请求
+
+{% codeblock %}
+ <script type="text/javascript" src="https://api.55to.top/email?email=a@b.com&name=tester1&message=功能测试&jcb=sendStatus"></script>
+{% endcodeblock %}
+这串请求全部都是发送的数据，唯一有个地方要注意下，**jcb**这个参数名需要和后端商量好，如果前端后端都是你一人那就不用商量啦。
+
+&emsp;&emsp;· 编写代码，处理服务器返回的数据。
+
+{% codeblock %}
+function sendStatus(date) {
+    $('.box').html(JSON.stringify(date));
+}
+{% endcodeblock %}
+（至于为什么我们不让服务器返回这样的代码的原因很简单，你可以自己尝试思考一波:-)）
+函数名随意写，但是一定要把函数名通过请求发往后端，像这样`jcb=sendStatus`。请**务必把这段代码放在上面script标签之前**。
+
+2.编写服务器代码(需有nodejs基础), 用到nodemailer模块
+
+{% codeblock lang:js %}
+var http = require('http');
+var url = require('url');
+var nodemailer = require('nodemailer');
+
+var server = http.createServer(function (req, res) {
+    //处理发来的数据
+    var query = url.parse(req.url,true).query;
+
+    if (req.url.indexOf('/email') == 0) {
+        //开启一个连接池
+        var transporter = nodemailer.createTransport({
+            service: 'qq',
+            auth: {
+                user: 'xxxxxxx@qq.com',
+                pass: 'xxxxxxxxxxxxxx'
+            }
+        });
+
+        // 设置邮件内容
+        var mailOptions = {
+            from: '博客消息 xxxxxxxxx@qq.com', // 发件地址
+            to: 'xxxxxxxxxx@qq.com', // 收件列表
+            subject: query.name, // 标题
+            text: '— ' + query.email + '\n\n    ' + query.message
+        };
+
+        // 发送邮件
+        transporter.sendMail(mailOptions, function(error, info){
+            res.writeHead(200, { "content-type": 'text/javascript;charset=UTF-8'});
+            //返回数据
+            var cb = query.jcb;
+            if(error){
+                var m = {status: 0, response: error.response};
+                res.write(cb+'('+JSON.stringify(m)+');');
+                res.end();
+                return;
+            }
+            var m = {status: 1, response: info.response};
+            res.write(cb+'('+JSON.stringify(m)+');');
+            res.end();
+        });
+        return;
+    }
+});
+
+server.listen(3004);
+{% endcodeblock %}
+
+## 运行结果
+![html结果](/assets/增加留言功能/1.PNG)
+![html结果](/assets/增加留言功能/2.PNG)
+
+## 写在后面
+- 如果你使用的是mayBe主题，那么你将只用编写后端代码（复制粘贴- -）并修改主题配置文件相关字段`msg_server_url: https://yourserver.com/api`，因为前端代码我已经写好啦。
+- nodemailer模块使用的是SMTP协议，你需要开启你的邮箱SMTP服务，以QQ邮箱为例：设置-》账户-》POP3/IMAP/SMTP服务，开启后会给你一个密码，填入nodejs代码相关位置就行了。
+- 不仅是留言，同样的你也可以为你的博客增加评论、点赞等功能。
+
+Have fun and enjoy it, thanks;)

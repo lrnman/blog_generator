@@ -1,0 +1,20 @@
+<!-- Footer -->
+<footer>
+    <div class="pagination">
+        <% var options = {
+            end_size: 3,
+            mid_size: 0
+        } %>
+        <%- paginator(options) %>
+        <select name="" id="select_page">
+            <% for (var i=1; i <=page.total; i++) {
+                var pageUrl = '/'+config.pagination_dir+'/'+i;
+                if (i == 1) {
+                    pageUrl = '/';
+                }
+            %>
+            <option value="<%- pageUrl %>" <%- i==page.current? 'selected' : '' %>><%- _p('page', i) %></option>
+            <% } %>
+        </select>
+    </div>
+</footer>

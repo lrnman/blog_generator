@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="<%- config.language || 'zh-CN' %>">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <%
+  var title = page.title;
+  title = __(title);
+  %>
+
+  <title><%if (is_home()) {%><%= config.title %><% } else { %><%= title ? title.replace('<br />', ' ').substr(0, 10) : theme.unnamed %> - <%= config.title %> <% } %></title>
+
+  <% if (theme.favicon){ %>
+    <%- favicon_tag(theme.favicon) %>
+  <% } %>
+
+  <% if (!is_current('me/')) { %>
+    <%- theme.stylesheets ? css(theme.stylesheets): '' %>
+    <noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
+  <%  } else { %>
+    <!--[if lte IE 8]><script src="/js/ie/html5shiv.js"></script><![endif]-->
+    <%- css(theme.stylesheets_of_me) %>
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/me/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="/css/me/ie9.css" /><![endif]-->
+  <% } %>
+</head>

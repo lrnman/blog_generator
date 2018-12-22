@@ -1,0 +1,188 @@
+///
+/// Big Picture by HTML5 UP
+/// html5up.net | @ajlkn
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+///
+
+/* Poptrox */
+
+	.poptrox-popup {
+		@include vendor('box-sizing', 'content-box');
+		background: #fff;
+		box-shadow: 0 0.1em 0.15em 0 rgba(0, 0, 0, 0.15);
+		min-height: inherit !important;
+		min-width: inherit !important;
+
+		.loader {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -1em 0 0 -1em;
+			width: 2em;
+			height: 2em;
+			display: block;
+			font-size: 2em;
+
+			&:before {
+				@include vendor('animation', 'spinner-rotate 0.75s infinite linear !important');
+				-moz-osx-font-smoothing: grayscale;
+				-webkit-font-smoothing: antialiased;
+				font-family: FontAwesome;
+				font-style: normal;
+				font-weight: normal;
+				text-transform: none !important;
+				color: _palette(border);
+				content: '\f1ce';
+				cursor: default;
+				display: block;
+				height: 2em;
+				left: 0;
+				line-height: 2em;
+				position: absolute;
+				text-align: center;
+				top: 0;
+				width: 2em;
+			}
+		}
+
+		.caption {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			background: _palette(bg);
+			width: 100%;
+			height: 3em;
+			line-height: 2.8em;
+			text-align: center;
+			cursor: default;
+			z-index: 1;
+			font-size: 0.9em;
+			overflow: auto;
+		}
+
+		.nav-next,
+		.nav-previous {
+			@include vendor('transition', 'opacity #{_duration(transition)} ease-in-out');
+			position: absolute;
+			top: 50%;
+			margin-top: -2rem;
+			width: 2rem;
+			height: 4rem;
+			opacity: 0;
+			cursor: pointer;
+			background: rgba(0, 0, 0, 0.01);
+			-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+			z-index: 10102;
+		}
+
+		.nav-next:before,
+		.nav-previous:before {
+			color: #000;
+			font-family: FontAwesome;
+			content: '\f105';
+			font-size: 4rem;
+			text-shadow: 4px 0 2px #fff;
+			position: absolute;
+			width: 2rem;
+			height: 4rem;
+			line-height: 4rem;
+			top: 50%;
+			margin: -2rem 0 0 0;
+			overflow: hidden;
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			display: inline-block;
+		}
+
+		&:hover {
+			.nav-next,
+			.nav-previous {
+				opacity: 0.5;
+			}
+
+			.nav-next:hover,
+			.nav-previous:hover {
+				opacity: 1.0;
+			}
+		}
+
+		.nav-previous:before {
+			@include vendor('transform', 'scaleX(-1)');
+			-ms-filter: "FlipH";
+			filter: FlipH;
+		}
+
+		.nav-next {
+			right: 0;
+
+			&:before {
+				right: 0;
+			}
+		}
+
+		.nav-previous {
+			left: 0;
+
+			&:before {
+				left: 0;
+			}
+		}
+
+		.closer {
+			@include vendor('transition', 'opacity #{_duration(transition)} ease-in-out');
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 2rem;
+			height: 2rem;
+			margin-top: .2rem;
+			margin-right: .2rem;
+			text-indent: -9999px;
+			opacity: 0;
+			-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+			z-index: 10102;
+
+			&:before {
+				position: absolute;
+				text-indent: 0;
+				font-family: FontAwesome;
+				content: '\f057';
+				font-size: 2rem;
+				display: block;
+				width: 2rem;
+				height: 2rem;
+				line-height: 2rem;
+				color: #ffffff !important;
+				background-color: #000;
+				border-radius: 100%;
+				text-align: center;
+			}
+		}
+
+		&:hover {
+			.closer {
+				opacity: 0.5;
+
+				&:hover {
+					opacity: 1.0;
+				}
+			}
+		}
+
+		body.is-touch & {
+			.nav-next,
+			.nav-previous,
+			.closer {
+				opacity: 1.0 !important;
+			}
+		}
+
+		@include breakpoint(small) {
+			.nav-next:before,
+			.nav-previous:before,
+			.closer:before {
+				opacity: 0.65;
+			}
+		}
+	}
