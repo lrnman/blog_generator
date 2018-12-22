@@ -2436,6 +2436,7 @@ table.alt tbody tr td {
     user-select: none;
     cursor: default; }
   .gallery-box .gallery-wrapper {
+    -webkit-overflow-scrolling: touch;
     padding-bottom: 31.6%;
     height: 0;
     overflow: auto; }

@@ -23,6 +23,7 @@
     $viewPortHigh: 31.6%;
     $imgHigh: 30%;
 
+    -webkit-overflow-scrolling: touch;
     padding-bottom: $viewPortHigh;
     height: 0;
     overflow: auto;
