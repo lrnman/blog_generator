@@ -235,6 +235,9 @@ input[type="submit"] {
     height: 0;
     overflow: hidden;
     visibility: hidden;
+    position: absolute;
+    top: -100px;
+    left: -100px;
 }
 
 .info-box {
