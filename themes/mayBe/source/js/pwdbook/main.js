@@ -24,9 +24,9 @@ function doneWork() {
 }
 function update(working) {
     if(working) {
-        $('#submit').val('确认中..');
+        $('#confire_btn').val('确认中..');
     } else {
-        $('#submit').val('确认身份');
+        $('#confire_btn').val('确认身份');
         if (error == null) {
             $('#identity_info').text($('#userName')[0].value);
             if(skel.breakpoint("medium").active)
@@ -68,8 +68,12 @@ function selectText(element) {
 
 $(function() {
 
-    $('#identity form').on('submit', function() {
-        updateMPW();
+    $('#identity #confire_btn').on('click', function() {
+        if ($('#userName')[0].value == '' || $('#masterPassword')[0].value == '') {
+            $('#identity input[type=submit]').trigger('click');
+        } else {
+            updateMPW();
+        }
         return false;
     });
     $('#site input, #site select').on('change input keyup', function() {

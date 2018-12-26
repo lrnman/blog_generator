@@ -3048,9 +3048,14 @@ table.alt tbody tr td {
   @media screen and (max-width: 480px) {
     .pwdbook section {
       border-left: 0; } }
-  .pwdbook input[type="submit"] {
+  .pwdbook input[type="button"] {
     height: 3rem;
     line-height: 3rem; }
+  .pwdbook input[type="submit"] {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden; }
   .pwdbook .info-box h3, .pwdbook .info-box p {
     height: 2rem;
     line-height: 2rem; }

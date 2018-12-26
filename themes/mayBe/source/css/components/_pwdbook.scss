@@ -225,9 +225,16 @@ ul {
 
 }
 
-input[type="submit"] {
+input[type="button"] {
     height: 3rem;
     line-height: 3rem;
+}
+
+input[type="submit"] {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
 }
 
 .info-box {
