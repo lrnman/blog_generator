@@ -2,7 +2,7 @@
 
 /*_tag*/
 
-.gallery-box {
+#main .gallery-box {
   margin: 0 0 2rem 0;
 
   h1 {
@@ -54,6 +54,9 @@
         @include vendor('display', 'flex');
         @include vendor('justify-content', 'center');
         @include vendor('align-items', 'center');
+
+        background-size: cover;
+        background-position: center center;
       }
 
       a:nth-child(2n) {
@@ -72,14 +75,12 @@
       }
 
       .bg {
-        position: absolute;
-        top: 0;
-        left: 0;
+
         width: 100%;
         height: 100%;
         //@include vendor('transition', 'transform 0.2s ease-out');
-        //background-size: cover;
-        //background-position: center center;
+        background-size: cover;
+        background-position: center center;
       }
 
 

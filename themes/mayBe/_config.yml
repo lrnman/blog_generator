@@ -49,12 +49,12 @@ stylesheets_of_me:
 # scripts loaded in the end of the body
 scripts:
 - /js/jquery.min
-#- /js/jquery.lazyload.min
 - /js/jquery.poptrox.min
 - /js/jquery.scrollex.min
 - /js/jquery.scrolly.min
 - /js/skel.min
 - /js/util
+- /js/macy
 - /js/main
 
 # 文章展示时间格式

@@ -69,6 +69,10 @@
 				width: auto;
 				height: auto;
 				margin: 0 auto;
+
+				.fit {
+
+				}
 			}
 
 			@include breakpoint(large) {

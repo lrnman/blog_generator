@@ -1,0 +1,7 @@
+<div class="box alt p-images-box"  data-trueorder="true" data-col="<%- photos.length < 5 ? 2 : col %>">
+    <div class="poptrox macy-container">
+        <% for (var i in photos) { %>
+            <a href="<%- photos[i] %>" ><img class="" data-echo="<%- photos[i] %>" src="<%- photos[i] %>" alt="Photo"></a>
+        <% } %>
+    </div>
+</div>

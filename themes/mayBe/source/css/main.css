@@ -2427,9 +2427,9 @@ table.alt tbody tr td {
       opacity: 0.65; } }
 
 /*_tag*/
-.gallery-box {
+#main .gallery-box {
   margin: 0 0 2rem 0; }
-  .gallery-box h1 {
+  #main .gallery-box h1 {
     height: 2rem;
     line-height: 2rem;
     font-size: 1rem;
@@ -2444,12 +2444,12 @@ table.alt tbody tr td {
     -ms-user-select: none;
     user-select: none;
     cursor: default; }
-  .gallery-box .gallery-wrapper {
+  #main .gallery-box .gallery-wrapper {
     -webkit-overflow-scrolling: touch;
     padding-bottom: 31.6%;
     height: 0;
     overflow: auto; }
-    .gallery-box .gallery-wrapper .gallery {
+    #main .gallery-box .gallery-wrapper .gallery {
       margin-bottom: -31.6%;
       overflow: hidden;
       display: -moz-flex;
@@ -2460,11 +2460,11 @@ table.alt tbody tr td {
       -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
-      .gallery-box .gallery-wrapper .gallery a,
-      .gallery-box .gallery-wrapper .gallery img {
+      #main .gallery-box .gallery-wrapper .gallery a,
+      #main .gallery-box .gallery-wrapper .gallery img {
         display: block;
         border: none; }
-      .gallery-box .gallery-wrapper .gallery a {
+      #main .gallery-box .gallery-wrapper .gallery a {
         cursor: -webkit-zoom-in !important;
         cursor: -moz-zoom-in !important;
         width: calc(50% - 1px);
@@ -2484,21 +2484,22 @@ table.alt tbody tr td {
         -moz-align-items: center;
         -webkit-align-items: center;
         -ms-align-items: center;
-        align-items: center; }
-      .gallery-box .gallery-wrapper .gallery a:nth-child(2n) {
+        align-items: center;
+        background-size: cover;
+        background-position: center center; }
+      #main .gallery-box .gallery-wrapper .gallery a:nth-child(2n) {
         margin-left: 1px; }
-      .gallery-box .gallery-wrapper .gallery a:nth-child(2n+1) {
+      #main .gallery-box .gallery-wrapper .gallery a:nth-child(2n+1) {
         margin-right: 1px; }
-      .gallery-box .gallery-wrapper .gallery img.bg {
+      #main .gallery-box .gallery-wrapper .gallery img.bg {
         position: static;
         width: 100%;
         height: auto; }
-      .gallery-box .gallery-wrapper .gallery .bg {
-        position: absolute;
-        top: 0;
-        left: 0;
+      #main .gallery-box .gallery-wrapper .gallery .bg {
         width: 100%;
-        height: 100%; }
+        height: 100%;
+        background-size: cover;
+        background-position: center center; }
 
 /*_tag*/
 .toc-box {
@@ -3067,6 +3068,12 @@ table.alt tbody tr td {
   .pwdbook .info-box p {
     font-size: 1.6rem;
     word-break: break-all; }
+
+/*_tag*/
+#main .p-images-box .poptrox a {
+  display: block;
+  border-bottom: none;
+  cursor: zoom-in; }
 
 /* Wrapper */
 #wrapper {

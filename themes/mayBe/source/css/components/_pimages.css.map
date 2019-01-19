@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,QAAQ;AAKA,8BAAE;EACE,OAAO,EAAE,KAAK;EACd,aAAa,EAAE,IAAI;EACnB,MAAM,EAAE,OAAO",
+"sources": ["_pimages.scss"],
+"names": [],
+"file": "_pimages.css"
+}

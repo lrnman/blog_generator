@@ -406,15 +406,10 @@
             location.assign(this.value);
         });
 
-
-
-        //画廊相关
-        var $galleryWrapper = $('.gallery-wrapper');
-        if ($galleryWrapper.length) {
-
-            //    设置“画廊”
-            var $gallery = $('.gallery');
-            $gallery.poptrox({
+        // pop
+        var $poptrox = $(".poptrox, .gallery");
+        if ($poptrox.length) {
+            $poptrox.poptrox({
                 baseZIndex: 10001,
                 useBodyOverflow: false,
                 usePopupEasyClose: false,
@@ -427,13 +422,6 @@
                 usePopupNav: true
             });
 
-            $window.resize(function(){
-                /*var wh = $galleryWrapper.width() * (parseInt($galleryWrapper.data('row'))*30 + 1.6)/100;
-                $galleryWrapper.css('height', wh);*/
-                var h=$gallery.find('a').width() / 5 * 3;
-                $gallery.find('a').css('height', h);
-            }).trigger('resize');
-
             // Touch mode.
             skel.on('change', function () {
 
@@ -443,8 +431,19 @@
                     $body.removeClass('is-touch');
 
             });
+        }
 
+        //画廊相关
+        var $galleryWrapper = $('.gallery-wrapper');
+        if ($galleryWrapper.length) {
+            var $gallery = $(".gallery");
 
+            $window.resize(function(){
+                /*var wh = $galleryWrapper.width() * (parseInt($galleryWrapper.data('row'))*30 + 1.6)/100;
+                $galleryWrapper.css('height', wh);*/
+                var h=$gallery.find('a').width() / 5 * 3;
+                $gallery.find('a').css('height', h);
+            }).trigger('resize');
 
 
             //当鼠标在galler时， 不让BODY滚动
@@ -485,6 +484,27 @@
                 $body.css(removeClass);
             });
 
+        }
+
+        var $pImagesBox = $('.p-images-box');
+        if ($pImagesBox.length) {
+            var masonry = new Macy({
+                container: '.macy-container',
+                trueOrder: $pImagesBox.data('trueorder') || false,
+                waitForImages: false,
+                useOwnImageLoader: false,
+                margin: {
+                    x: 5,
+                    y: 5
+                },
+                columns: $pImagesBox.data('col') || 5,
+                breakAt: {
+                    1200: 5,
+                    940: 3,
+                    520: 2,
+                    400: 1
+                }
+            });
         }
 
     });
