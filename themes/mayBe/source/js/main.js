@@ -502,9 +502,12 @@
                     1200: 5,
                     940: 3,
                     520: 2,
-                    400: 1
                 }
             });
+            
+            masonry.runOnImageLoad(function () {
+              masonry.recalculate(true);
+            }, true);
         }
 
     });

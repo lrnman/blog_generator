@@ -1,5 +1,13 @@
 
 .pwdbook {
+    * {
+        user-select: none;
+    }
+    
+    #sitePassword {
+        user-select: text;
+    }
+    
 padding: 0 !important;
 @include color(alt);
 @include vendor('display', 'flex');

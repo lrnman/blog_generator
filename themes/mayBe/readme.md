@@ -39,10 +39,10 @@ git clone git@github.com:lrnman/mayBe.git themes/mayBe
 8. 画廊 
 - photos （数组。画廊照片的路径）
 - row （显示画廊的窗口的行数，默认为1）
+9. link (网站路径。点击主页标题，会在新窗口跳转到目标网站)
+10. 瀑布照片
 - pimages (数组。瀑布照片的路径)
 - col（显示瀑布的列数，默认为5）
-
-9. link (网站路径。点击主页标题，会在新窗口跳转到目标网站)
 
 ### 内容元素
 1. 图片

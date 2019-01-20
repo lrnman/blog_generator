@@ -104,7 +104,7 @@
 
         });
 
-        var oldScrollY = 0;
+        /*var oldScrollY = 0;
         var pre = 0;
         //true 下， false 上
         var towards = true;
@@ -130,7 +130,7 @@
             }
             // console.log(distance);
             oldScrollY = newScrollY;
-        });
+        });*/
 
 
         // Section transitions.
@@ -291,7 +291,7 @@
 
                     // Update scrolly links.
                     $('a[href^="#"]').scrolly({
-                        speed: 1000,
+                        speed: 1500,
                         offset: $header.outerHeight() - 1
                     });
 
@@ -301,7 +301,7 @@
                         $window.trigger('scroll');
                     }, 0);
 
-                }, 1);
+                }, 100);
             })
             .load(function () {
                 $window.trigger('resize');
