@@ -5,10 +5,38 @@
 #main .p-images-box {
 
     .poptrox {
+        -moz-column-gap:6px;
+        -webkit-column-gap:6px;
+        column-gap:6px;
+        
         a {
             display: block;
             border-bottom: none;
             cursor: zoom-in;
+            margin-bottom: 6px;
+            
+            &.noevent {
+                pointer-events: none; 
+            }
+        }
+        
+        
+    }  
+    
+    @include breakpoint(medium) {
+        .poptrox {
+            -moz-column-count:3 !important;
+            -webkit-column-count:3 !important;
+            column-count:3 !important;
         }
     }
+    
+    @include breakpoint(xsmall) {
+        .poptrox {
+            -moz-column-count:2 !important;
+            -webkit-column-count:2 !important;
+            column-count:2 !important;
+        }
+    }
+    
 }

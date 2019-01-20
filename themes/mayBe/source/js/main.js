@@ -486,6 +486,7 @@
 
         }
 
+
         var $pImagesBox = $('.p-images-box');
         if ($pImagesBox.length) {
             var masonry = new Macy({
@@ -499,15 +500,21 @@
                 },
                 columns: $pImagesBox.data('col') || 5,
                 breakAt: {
-                    1200: 5,
-                    940: 3,
-                    520: 2,
+                    1280: 5,
+                    980: 3,
+                    480: {
+                      columns: 2,
+                      margin: {
+                          x: 2,
+                          y: 2
+                      }
+                    },
                 }
             });
             
             masonry.runOnImageLoad(function () {
-              masonry.recalculate(true);
-            }, true);
+              $pImagesBox.find('a').removeClass('noevent');
+            });
         }
 
     });
