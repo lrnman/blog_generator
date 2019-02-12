@@ -516,6 +516,17 @@
               $pImagesBox.find('a').removeClass('noevent');
             });
         }
+        
+        $(".post.read-post br").remove();
+        
+        var $lMap = $('#l-map');
+        if ($lMap.length) {
+          var map = new BMap.Map("l-map");        
+          map.centerAndZoom(new BMap.Point($lMap.data('x'), $lMap.data('y')), 11);      
+          var local = new BMap.LocalSearch(map,   
+                        { renderOptions:{map: map}});      
+          local.searchInBounds($lMap.data('search'), map.getBounds());   
+        }
 
     });
 

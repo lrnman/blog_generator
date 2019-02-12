@@ -1,6 +1,8 @@
 
 <!-- Post -->
+ 
 <section class="post read-post">
+  <%- post.scripts ? js(post.scripts) : '' %>
 	<header class="major">
 		<span class="date"><%- post.date.format(theme.date_format)%></span>
 		<h1 id="title"><%- post.title || theme.unnamed %></h1>
@@ -9,7 +11,7 @@
 	<%- partial('_partial/gallery', {photos: post.photos, row: post.row}) %>
 	<%	} %>
 
-    <%if(post.pimages && post.pimages.length){ %>
+    <% if(post.pimages && post.pimages.length){ %>
     <%- partial('_partial/pimages', {photos: post.pimages, col: post.col}) %>
     <%	} %>
 

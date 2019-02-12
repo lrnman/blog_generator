@@ -396,3 +396,11 @@
 		}
 
 }
+
+@mixin fix-img {
+    display: initial;
+    max-width: initial;
+    width: initial;
+    height: initial;
+    margin: initial;
+}
